@@ -6,11 +6,11 @@
         <table class="table">
             <thead class="table-dark">
             <tr>
-                <th> {{ __('Name') }}</th>
-                <th>{{ __('Address') }} </th>
-                <th>{{ __('Telephone') }} </th>
-                <th>{{ __('Delete') }} </th>
-                <th>{{ __('Update') }} </th>
+                <th> {{__('Nazwa')}}</th>
+                <th>{{__('Adres')}}</th>
+                <th>{{__('Telefon')}}</th>
+                <th>{{__('Usuń')}}</th>
+                <th>{{__('Edytuj')}}</th>
             </tr>
             </thead>
             <tbody>
@@ -29,11 +29,11 @@
                         <form action="{{route('admin.deleteSponsor')}}" method="post">
                             @csrf
                             <input type="text"  name="id" hidden value="{{$sponsor->id}}">
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">{{__('Usuń')}}</button>
                         </form>
                     </td>
                     <td>
-                        <button type="submit" form="myform{{$sponsor->id}}"  class="btn btn-info">Update</button>
+                        <button type="submit" form="myform{{$sponsor->id}}"  class="btn btn-info">{{__('Edytuj')}}</button>
                     </td>
                 </tr>
             @endforeach

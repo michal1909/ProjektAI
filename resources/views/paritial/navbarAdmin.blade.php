@@ -20,22 +20,18 @@
                     <a class="nav-link active" href="{{route('admin.sponsorships')}}">{{__('Kontrybucje')}}</a>
                 </li>
             </ul>
-            <a class="btn btn btn-outline-primary" href="{{route('login')}}" role="button">{{__('Zaloguj się')}}</a>
-
+            <span>{{__('Witaj,') ." ". $user->name}}</span>
             <form id="logout-form" name="logout-form" action="{{ route('logout') }}" method="POST">
                 @csrf
                 <x-button form="logout-form" class="ml-3" type="submit">
-                    {{__('Logout ') }}
+                    {{__('Wyloguj się') }}
                 </x-button>
             </form>
         </div>
     </div>
 </nav>
-<div class="p-5">
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
-</div>
-<div class="p-5">
     @if (isset($status))
-        {{ $status }}
+        <div class="p-5">{{ $status }}</div>
     @endif
-</div>
+

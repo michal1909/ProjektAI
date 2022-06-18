@@ -8,14 +8,16 @@
                 <div class="card" >
                     <a href="" class="text-decoration-none text-dark">
                         <img src="{{$sponsor->getImage()}}" class="card-img-top" alt="...">
-                        <div class="card-body">
+                        <div class="card-body" style="min-height: 185px;">
                             <h5 class="card-title mb-3">{{$sponsor->name}}</h5>
-                            <span>{{$sponsor->address}}</span>
-                            <span>{{$sponsor->telephone}}</span>
-                            <h5>Sponsorships</h5>
-                            @foreach($sponsor->sponsorships as $sponsorship)
-                                <h5>{{$sponsorship->animal->name}} : {{$sponsorship->contribution}}</h5>
-                            @endforeach
+                            <p style="text-align: left">
+                                <span>{{__('Adres: ')}}{{$sponsor->address}}</span><br>
+                                <span>{{__('Telefon: ')}}{{$sponsor->telephone}}</span><br>
+                                <span>{{__('Patronat ')}}</span><br>
+                                @foreach($sponsor->sponsorships as $sponsorship)
+                                    <span>{{$sponsorship->animal->name}} : {{$sponsorship->contribution}}<span><br>
+                                @endforeach
+                            </p>
                         </div>
                     </a>
                 </div>

@@ -45,6 +45,28 @@ class AdminController extends Controller
         ]);
     }
 
+    public function createAnimal(Request $request){
+
+        $request->validate([
+            'enclosure_id' => ['required','integer'],
+            'name' => ['required','string', 'max:255'],
+            'species' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+        ]);
+
+        Animal::create([
+            'enclosure_id' => $request->enclosure_id,
+            'name' => $request->name,
+            'species' => $request->species,
+            'gender' => $request->gender,
+            'country' => $request->country,
+            'image' => $request->file('image')->store('img', 'public')
+        ]);
+        return redirect()->back()->with('status','Zwierzę zostało dodane');
+    }
+
     public function updateAnimal(Request $request){
 
         $request->validate([
@@ -93,6 +115,22 @@ class AdminController extends Controller
     public function deleteSponsor(Request $request){
         Sponsor::find($request->id)->delete();
         return redirect(route('admin.sponsors'))->with('status','Usunieto sponsora');
+    }
+
+    public function createSponsorship(Request $request){
+        $request->validate([
+            'sponsor_id'=>['required','integer'],
+            'animal_id'=>['required','integer'],
+            'contribution'=>['required','numeric']
+        ]);
+
+        Sponsorship::create([
+            'sponsor_id' => $request->sponsor_id,
+            'animal_id'=> $request->animal_id,
+            'contribution' => $request->contribution
+        ]);
+
+        return redirect(route('admin.sponsorships'))->with('status','Dodano konstrybucję');
     }
 
     public function updateSponsorship(Request $request){

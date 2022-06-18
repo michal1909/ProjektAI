@@ -34,11 +34,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase mb-4 pb-1">{{__('Newsletter')}}</h5>
-                <div class="form-outline form-white mb-4 text-center">
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                    <button type="submit" class="btn btn-outline-light mt-4 mb-2">{{__('Wyślij')}}</button>
-                </div>
+                <h5 class="text-uppercase mb-4 pb-1">{{__('Kontakt')}}</h5>
                 <ul class="fa-ul" style="margin-left: 1.65em;">
                     <li class="mb-3">
                         <span class="fa-li"><i class="fa fa-envelope"></i></span><span class="ms-2">{{__('zooworld@example.com')}}</span>

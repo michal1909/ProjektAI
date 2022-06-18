@@ -2,26 +2,17 @@
 @include('paritial.navbarAdmin')
 <div class="container mt-5 mb-5 text-center">
     <h1 class="mb-4">Zwierzęta</h1>
-    <div class="btn-group" role="group" aria-label="Basic outlined example">
-        <button type="button" class="btn btn-outline-dark">Wszystkie</button>
-        <button type="button" class="btn btn-outline-dark">Ssaki</button>
-        <button type="button" class="btn btn-outline-dark">Ptaki</button>
-        <button type="button" class="btn btn-outline-dark">Gady</button>
-        <button type="button" class="btn btn-outline-dark">Płazy</button>
-        <button type="button" class="btn btn-outline-dark">Ryby</button>
-        <button type="button" class="btn btn-outline-dark">Stawonogi</button>
-    </div>
     <div class="row py-4 d-flex justify-content-center">
         <table class="table">
             <thead class="table-dark">
             <tr>
-                <th> {{ __('Name') }}</th>
-                <th>{{ __('Species') }} </th>
-                <th>{{ __('Gender') }} </th>
-                <th>{{ __('Country') }} </th>
-                <th>{{ __('Enclosure') }} </th>
-                <th>{{ __('Delete') }} </th>
-                <th>{{ __('Update') }} </th>
+                <th> {{ __('Nazwa') }}</th>
+                <th>{{ __('Gatunek') }} </th>
+                <th>{{ __('Płeć') }} </th>
+                <th>{{ __('Kraj') }} </th>
+                <th>{{ __('Klatka') }} </th>
+                <th>{{ __('Usuń') }} </th>
+                <th>{{ __('Edytuj') }} </th>
             </tr>
             </thead>
             <tbody>
@@ -43,16 +34,55 @@
                         <form action="{{route('admin.deleteAnimal')}}" method="post">
                             @csrf
                             <input type="text"  name="id" hidden value="{{$animal->id}}">
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">{{ __('Usuń') }}</button>
                         </form>
                     </td>
                     <td>
-                        <button type="submit" form="myform{{$animal->id}}"  class="btn btn-info">Update</button>
+                        <button type="submit" form="myform{{$animal->id}}"  class="btn btn-info">{{ __('Edytuj') }}</button>
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+        <div class="my-2">
+            <div class="table-pagination">
+                {{ $animals->links() }}
+            </div>
+        </div>
+    </div>
+    <h1 class="mb-4 mt-4">{{__('Dodaj zwierzę')}}</h1>
+    <div class="row py-4 d-flex justify-content-center">
+        <form method="POST"  action="{{route('admin.createAnimal')}}"  enctype="multipart/form-data">
+            @csrf
+            <div>
+                <label class="mb-2 mt-3 fw-bold" for="enclosure_id">{{__('Id klatki:')}}</label><br>
+                <input type="number" name="enclosure_id" min="1"><br>
+            </div>
+            <div>
+                <label class="mb-2 mt-3 fw-bold" for="name">{{__('Nazwa zwierzęcia:')}}</label><br>
+                <input type="text" name="name"><br>
+            </div>
+            <div>
+                <label class="mb-2 mt-3 fw-bold" for="species">{{__('Gatunek:')}}</label><br>
+                <input type="text" name="species"><br>
+            </div>
+            <div>
+                <label class="mb-2 mt-3 fw-bold" for="gender">{{__('Płeć:')}}</label><br>
+                <input type="text" name="gender"><br>
+            </div>
+            <div>
+                <label class="mb-2 mt-3 fw-bold" for="country">{{__('Kraj:')}}</label><br>
+                <input type="text" name="country"><br>
+            </div>
+            <div>
+                <label class="mb-2 mt-3 fw-bold" for="image">{{__('Zdjęcie:')}}</label><br>
+                <label>
+                    <input type="file"  name="image">
+                    <a class="input-image-link" hidden>{{__("Select image")}}</a>
+                </label>
+            </div>
+            <button class="btn btn-outline-dark mt-3" type="submit">{{__("Dodaj")}}</button>
+        </form>
     </div>
 </div>
 @include('paritial.footer')

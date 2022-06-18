@@ -31,64 +31,52 @@
     <div class="row py-4 d-flex justify-content-center">
         <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center">
             <div class="card" >
-                <a href="" class="text-decoration-none text-dark">
                     <img src="{{URL::asset('storage/img/crd1.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title mb-3">{{__('Ssaki')}}</h5>
                     </div>
-                </a>
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center">
             <div class="card" >
-                <a href="" class="text-decoration-none text-dark">
                     <img src="{{URL::asset('storage/img/crd2.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title mb-3">{{__('Ptaki')}}</h5>
                     </div>
-                </a>
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center">
             <div class="card" >
-                <a href="" class="text-decoration-none text-dark">
                     <img src="{{URL::asset('storage/img/crd3.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title mb-3">{{__('Gady')}}</h5>
                     </div>
-                </a>
             </div>
         </div>
     </div>
     <div class="row py-3 d-flex justify-content-center ">
         <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center">
             <div class="card" >
-                <a href="" class="text-decoration-none text-dark">
                     <img src="{{URL::asset('storage/img/crd4.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title mb-3">{{__('Płazy')}}</h5>
                     </div>
-                </a>
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center">
             <div class="card" >
-                <a href="" class="text-decoration-none text-dark">
                     <img src="{{URL::asset('storage/img/crd5.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title mb-3">{{__('Ryby')}}</h5>
                     </div>
-                </a>
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center">
             <div class="card" >
-                <a href="" class="text-decoration-none text-dark">
                     <img src="{{URL::asset('storage/img/crd6.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title mb-3">{{__('Stawonogi')}}</h5>
                     </div>
-                </a>
             </div>
         </div>
     </div>
@@ -130,7 +118,7 @@
             <p>
                 {{__('Zapraszamy osoby prywatne i firmy chcące przejąć część kosztów utrzymania wybranych przez siebie zwierząt do udziału w honorowej adopcji.')}}
             </p>
-            <a href="#" class="btn btn-outline-light mt-3">{{__('Zobacz więcej')}}</a>
+            <a href="{{route('guest.sponsor')}}" class="btn btn-outline-light mt-3">{{__('Zobacz więcej')}}</a>
         </div>
     </div>
 </div>

@@ -13,7 +13,7 @@ class GuestController extends Controller
     }
 
     public function animals(){
-        $animals = Animal::paginate(5);
+        $animals = Animal::paginate(8);
 
         return view('guest.animals',[
             'animals'=>$animals,
@@ -26,6 +26,11 @@ class GuestController extends Controller
             'sponsors'=> $sponsors
         ]);
     }
+
+    public function sponsor(){
+        return view('guest.sponsor');
+    }
+
     public function createSponsor(Request $request){
 
         $request->validate([

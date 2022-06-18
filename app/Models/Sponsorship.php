@@ -10,7 +10,9 @@ class Sponsorship extends Model
     use HasFactory;
 
     protected $fillable = [
-        'contribution'
+        'contribution',
+        'sponsor_id',
+        'animal_id'
     ];
 
     protected $table = "sponsorships";
