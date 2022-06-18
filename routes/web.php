@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    Route::get('/home', [GuestController::class,'home'])->name('guest.home');
-});
 
-Route::group(['middleware' => 'auth'], function() {
+    Route::get('/', [GuestController::class,'home'])->name('guest.home');
+    Route::get('/animals', [GuestController::class,'animals'])->name('guest.animals');
+    Route::get('/sponsors', [GuestController::class,'sponsors'])->name('guest.sponsors');
+    Route::get('/sponsor', [GuestController::class,'sponsor'])->name('guest.sponsor');
+    Route::post('/sponsor', [GuestController::class,'createSponsor'])->name('guest.createSponsor');
 
-});
+    Route::group(['middleware' => 'auth'], function() {
+        Route::get('/dashboard', [AdminController::class,'dashboard'])->name('admin.dashboard');
+        Route::get('/admin/animals', [AdminController::class,'animals'])->name('admin.animals');
+        Route::get('/admin/sponsorships', [AdminController::class,'sponsorships'])->name('admin.sponsorships');
+        Route::get('/admin/sponsors', [AdminController::class,'sponsors'])->name('admin.sponsors');
+        Route::post('/admin/updateAnimal', [AdminController::class,'updateAnimal'])->name('admin.updateAnimal');
+        Route::post('/admin/deleteAnimal', [AdminController::class,'deleteAnimal'])->name('admin.deleteAnimal');
+        Route::post('/admin/updateSponsor', [AdminController::class,'updateSponsor'])->name('admin.updateSponsor');
+        Route::post('/admin/deleteSponsor', [AdminController::class,'deleteSponsor'])->name('admin.deleteSponsor');
+        Route::post('/admin/updateSponsorship', [AdminController::class,'updateSponsorship'])->name('admin.updateSponsorship');
+        Route::post('/admin/deleteSponsorship', [AdminController::class,'deleteSponsorship'])->name('admin.deleteSponsorship');
+    });
 
 
 require __DIR__.'/auth.php';

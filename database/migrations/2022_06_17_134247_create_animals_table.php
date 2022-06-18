@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('enclosure_id')->unique();
+            $table->unsignedBigInteger('enclosure_id');
             $table->string('name');
+            $table->string('image')->nullable();
             $table->string('species');
             $table->enum('gender',['Male', 'Female']);
             $table->string('country');

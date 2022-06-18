@@ -16,11 +16,11 @@ class Sponsorship extends Model
     protected $table = "sponsorships";
 
   public function animal (){
-      return $this->hasOne(Animal::class);
+      return $this->belongsTo(Animal::class);
   }
 
   public function sponsor (){
-      return $this->hasOne(Sponsor::class);
+      return $this->belongsTo(Sponsor::class);
   }
 
 }
