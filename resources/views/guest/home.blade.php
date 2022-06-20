@@ -82,32 +82,34 @@
     </div>
     <h1 class="text-center mb-4" id="price-list">{{__('Cennik')}}</h1>
     <div class="row">
-        <table class="table table-hover ">
-            <thead class="table-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">{{__('Bilet')}}</th>
-                <th scope="col">{{__('Cena')}}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>{{__('Normalny')}}</td>
-                <td>{{__('30 PLN')}}</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>{{__('Ulgowy')}}</td>
-                <td>{{__('25 PLN')}}</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>{{__('Karta Dużej Rodziny')}}</td>
-                <td>{{__('25 PLN')}}</td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-hover ">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">{{__('Bilet')}}</th>
+                    <th scope="col">{{__('Cena')}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{__('Normalny')}}</td>
+                    <td>{{__('30 PLN')}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>{{__('Ulgowy')}}</td>
+                    <td>{{__('25 PLN')}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>{{__('Karta Dużej Rodziny')}}</td>
+                    <td>{{__('25 PLN')}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="row bg-dark mt-5 text-light">
         <div class="col-6">
